@@ -1,0 +1,7 @@
+C:\Users\Usuario\Documents\Empresa-Bus--master\bin\Debug\Empresa Bus.exe.config
+C:\Users\Usuario\Documents\Empresa-Bus--master\bin\Debug\Empresa Bus.exe
+C:\Users\Usuario\Documents\Empresa-Bus--master\bin\Debug\Empresa Bus.pdb
+C:\Users\Usuario\Documents\Empresa-Bus--master\obj\Debug\Empresa Bus.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Empresa-Bus--master\obj\Debug\Empresa Bus.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Empresa-Bus--master\obj\Debug\Empresa Bus.exe
+C:\Users\Usuario\Documents\Empresa-Bus--master\obj\Debug\Empresa Bus.pdb
