@@ -204,21 +204,35 @@ namespace Empresa_Bus
                     Console.Write("Nombre del acompañante (obligatorio): ");
                     acompanante = Console.ReadLine().Trim();
 
-                    if (string.IsNullOrWhiteSpace(acompanante))
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Debe ingresar el nombre del acompañante.");
-                        Console.ResetColor();
-                    }
-
                 } while (string.IsNullOrWhiteSpace(acompanante));
-
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Acompañante registrado correctamente.");
-                Console.ResetColor();
             }
+
+            Console.WriteLine("\nDESTINOS DISPONIBLES:");
+            VerDestinosDisponibles();
+
+            Console.Write("\nIngrese el código del destino: ");
+            int codigoRuta = int.Parse(Console.ReadLine());
+
+            Nodo rutaSeleccionada = Buscar(codigoRuta);
+
+            if (rutaSeleccionada == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ruta no encontrada.");
+                Console.ResetColor();
+                return;
+            }
+
+            string destino = rutaSeleccionada.Datos.Destino;
+
+            pasajeros.Add(new Pasajero(dni, nombre, destino));
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"\nPasajero registrado correctamente.");
+            Console.WriteLine($"Destino asignado: {destino}");
+            Console.ResetColor();
         }
-            public void MostrarPasajeros()
+        public void MostrarPasajeros()
         {
             if (pasajeros.Count == 0)
             {
@@ -230,21 +244,21 @@ namespace Empresa_Bus
 
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.WriteLine("╔══════════════╦════════════════════════════╗");
-            Console.WriteLine("║ DNI          ║ Nombre                     ║");
-            Console.WriteLine("╠══════════════╬════════════════════════════╣");
+            Console.WriteLine("╔══════════════╦════════════════════════════╦══════════════╗");
+            Console.WriteLine("║ DNI          ║ Nombre                     ║ Destino      ║");
+            Console.WriteLine("╠══════════════╬════════════════════════════╬══════════════╣");
 
             Console.ResetColor();
 
             foreach (Pasajero p in pasajeros)
             {
                 Console.WriteLine(
-                    $"║ {p.Dni,-12} ║ {p.Nombre,-26} ║");
+                    $"║ {p.Dni,-12} ║ {p.Nombre,-26} ║ {p.Destino,-12} ║");
             }
 
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.WriteLine("╚══════════════╩════════════════════════════╝");
+            Console.WriteLine("╚══════════════╩════════════════════════════╩══════════════╝");
 
             Console.ResetColor();
         }
